@@ -1,0 +1,14 @@
+{
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/_not-found/page": "/_not-found",
+  "/api/contact/route": "/api/contact",
+  "/api/service-request/route": "/api/service-request",
+  "/about/page": "/about",
+  "/contact/page": "/contact",
+  "/installation/page": "/installation",
+  "/projects/page": "/projects",
+  "/sales/page": "/sales",
+  "/service-maintenance/page": "/service-maintenance",
+  "/page": "/"
+}
