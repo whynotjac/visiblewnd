@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { siteConfig } from "@/lib/site";
 
-const defaultOgImage = "/images/projects/wndr.png";
+const defaultOgImage = "/images/projects/wndr.jpg";
 
 export function buildMetadata(
   pageName: string,

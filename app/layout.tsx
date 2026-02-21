@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/images/projects/wndr.png",
+        url: "/images/projects/wndr.jpg",
         width: 1200,
         height: 900,
         alt: "Visible Windows & Doors project photo"
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | Home`,
     description: siteConfig.description,
-    images: ["/images/projects/wndr.png"]
+    images: ["/images/projects/wndr.jpg"]
   }
 };
 

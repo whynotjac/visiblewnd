@@ -66,28 +66,28 @@ const newProjectPhotos: ProjectPhoto[] = newProjectPhotoFileNames.map((fileName,
 
 export const projectPhotos: ProjectPhoto[] = [
   {
-    src: "/images/projects/newphotos/img_2448.JPG",
+    src: "/images/projects/newphotos/IMG_2448.JPG",
     alt: "Contemporary home window and door installation",
     location: "Aspen, Colorado",
     projectType: "European Window Install",
     priority: true
   },
   {
-    src: "/images/projects/door2.png",
+    src: "/images/projects/door2.jpg",
     alt: "Large bifold door installation opening to patio",
     location: "Crystal Cove, California",
     projectType: "French Door Install",
     priority: true
   },
   {
-    src: "/images/projects/window1.png",
+    src: "/images/projects/window1.jpg",
     alt: "Modern black frame window installation",
     location: "Manhattan, New York",
     projectType: "Service & Maintenance",
     priority: true
   },
   {
-    src: "/images/projects/window2.png",
+    src: "/images/projects/window2.jpg",
     alt: "High-end residential window replacement",
     location: "Laguna Beach, California",
     projectType: "Service & Maintenance"
@@ -99,7 +99,7 @@ export const projectPhotos: ProjectPhoto[] = [
     projectType: "Sliding Door Install"
   },
   {
-    src: "/images/projects/imageofdoor.png",
+    src: "/images/projects/imageofdoor.jpg",
     alt: "Precision-fitted modern door and trim details",
     location: "Manhattan Beach, California",
     projectType: "Installation"
@@ -111,13 +111,13 @@ export const projectPhotos: ProjectPhoto[] = [
     projectType: "Installation"
   },
   {
-    src: "/images/projects/extra2.png",
+    src: "/images/projects/extra2.jpg",
     alt: "European-style casement windows in coastal home",
     location: "La Jolla, California",
     projectType: "Sliding Door Service"
   },
   {
-    src: "/images/projects/anotherone.png",
+    src: "/images/projects/anotherone.jpg",
     alt: "Refined exterior door and glazing installation",
     location: "Pasadena",
     projectType: "High-End Retrofit"
