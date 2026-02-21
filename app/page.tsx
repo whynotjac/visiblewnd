@@ -92,7 +92,7 @@ export default function HomePage() {
           <div className="mb-8 space-y-3">
             <h2 className="text-3xl sm:text-4xl">Core Services</h2>
             <p className="max-w-3xl text-base leading-7 text-[#243744]">
-              End-to-end support for sales, installation, and long-term service in Southern California.
+              End-to-end support for window and door installations, sales, and long-term service.
             </p>
           </div>
 
