@@ -41,12 +41,12 @@ export function SiteHeader() {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3" aria-label="Visible Windows & Doors home">
           <Image
-            src="/images/brand/visiblelogo-cropped.png"
+            src="/images/brand/vlogot-cropped.png"
             alt="Visible Windows & Doors logo"
-            width={1100}
-            height={420}
+            width={1113}
+            height={276}
             priority
-            className="h-16 w-auto object-contain sm:h-20"
+            className="h-10 w-auto object-contain sm:h-12"
           />
         </Link>
 
