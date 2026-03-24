@@ -41,10 +41,10 @@ export function SiteHeader() {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3" aria-label="Visible Windows & Doors home">
           <Image
-            src="/images/brand/vlogot-cropped.png"
+            src="/images/brand/visiblelogonew.png"
             alt="Visible Windows & Doors logo"
-            width={1113}
-            height={276}
+            width={23105}
+            height={5952}
             priority
             className="h-10 w-auto object-contain sm:h-12"
           />
