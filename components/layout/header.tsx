@@ -43,9 +43,9 @@ export function SiteHeader() {
           <Image
             src="/images/brand/visiblelogonew.png"
             alt="Visible Windows & Doors logo"
-            width={23105}
-            height={5952}
-            priority
+            width={620}
+            height={160}
+            sizes="(max-width: 639px) 155px, 186px"
             className="h-10 w-auto object-contain sm:h-12"
           />
         </Link>

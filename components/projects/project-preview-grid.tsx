@@ -51,7 +51,6 @@ export function ProjectPreviewGrid({ count = 6 }: ProjectPreviewGridProps) {
               alt={photo.alt}
               fill
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-              priority={photo.priority}
               className="object-cover transition duration-500 group-hover:scale-[1.03]"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">

@@ -3,7 +3,7 @@ export const siteConfig = {
   description:
     "Service, installation, and sales of windows and doors.",
   serviceArea: "Family-owned and based in Southern California",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://visiblewindowsdoors.com"
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.visiblewindowsanddoors.com"
 };
 
 export const navLinks = [
