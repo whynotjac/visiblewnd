@@ -17,7 +17,7 @@ export function SiteFooter() {
           <p className="text-sm text-[#243744]">Phone: (858)-334-9071</p>
           <p className="text-sm text-[#243744]">Email: contact@visiblewindowsanddoors.com</p>
           <p className="text-sm text-[#243744]">Mon - Sat: 8:00 AM - 5:00 PM</p>
-          <p className="text-sm text-[#243744]">CSLB License number 1150682</p>
+          <p className="text-sm text-[#243744]">CSL # 1150682</p>
         </div>
 
         <div className="space-y-3">

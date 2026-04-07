@@ -17,9 +17,9 @@ export default function ContactPage() {
           <h1 className="text-4xl sm:text-5xl">Get in Touch</h1>
 
           <div className="space-y-4 rounded-2xl border border-line bg-white p-6 shadow-card">
-            <h2 className="text-2xl">Based in Southern California, Available Nationwide</h2>
+            <h2 className="text-2xl">Family-Owned and Based in Southern California</h2>
             <p className="text-sm leading-7 text-[#223540]">
-              We work with homeowners, builders, architects, and designers throughout Southern California and on projects nationwide. Reach out to schedule a consultation or request a site visit for your project.
+              We work with homeowners, builders, architects, and designers throughout Southern California and have completed projects in multiple locations. Reach out to schedule a consultation or request a site visit for your project.
             </p>
             <p className="text-sm leading-7 text-[#223540]">
               Share details about your project goals, timing, and property location and our team will follow up with next steps.

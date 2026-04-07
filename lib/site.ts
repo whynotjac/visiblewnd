@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Visible Windows & Doors",
   description:
-    "Premium sales, installation, and service of windows and doors.",
-  serviceArea: "Based in Southern California",
+    "Service, installation, and sales of windows and doors.",
+  serviceArea: "Family-owned and based in Southern California",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://visiblewindowsdoors.com"
 };
 

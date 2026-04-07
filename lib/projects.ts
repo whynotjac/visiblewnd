@@ -95,13 +95,13 @@ export const projectPhotos: ProjectPhoto[] = [
   {
     src: "/images/projects/newphotos/IMG_4570.JPG",
     alt: "Custom glass door installation",
-    location: "Dana Point, California",
+    location: "Stinson Beach, California",
     projectType: "Sliding Door Install"
   },
   {
     src: "/images/projects/imageofdoor.jpg",
     alt: "Precision-fitted modern door and trim details",
-    location: "Manhattan Beach, California",
+    location: "Westlake Village, California",
     projectType: "Installation"
   },
   {

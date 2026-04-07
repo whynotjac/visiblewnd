@@ -7,22 +7,22 @@ import { projectPhotos } from "@/lib/projects";
 
 export const metadata = buildMetadata(
   "Home",
-  "Premium sales, expert installation, and long-term service for modern homes and high-end projects throughout Southern California.",
+  "Family-owned window and door contractor based in Southern California offering service, expert installation, and sales for modern homes and high-end projects.",
   "/"
 );
 
 const trustItems = [
   "30+ years combined construction experience",
   "European window & door specialists",
-  "Based in Southern California, available worldwide"
+  "Family Business Based in Southern California"
 ] as const;
 
 const services = [
   {
-    title: "Windows & Doors Sales",
+    title: "Service & Maintenance",
     description:
-      "High-quality window and door systems sourced for performance, aesthetics, and longevity. We help you select the right product for your project.",
-    href: "/sales"
+      "Repairs, adjustments, glass replacement, hardware service, and ongoing maintenance to keep your windows and doors performing like new.",
+    href: "/service-maintenance"
   },
   {
     title: "Installation",
@@ -31,10 +31,10 @@ const services = [
     href: "/installation"
   },
   {
-    title: "Service & Maintenance",
+    title: "Windows & Doors Sales",
     description:
-      "Repairs, adjustments, glass replacement, hardware service, and ongoing maintenance to keep your windows and doors performing like new.",
-    href: "/service-maintenance"
+      "High-quality window and door systems sourced for performance, aesthetics, and longevity. We help you select the right product for your project.",
+    href: "/sales"
   }
 ] as const;
 
@@ -48,13 +48,13 @@ export default function HomePage() {
         <Container className="grid gap-12 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-20">
           <div className="space-y-7">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent/80">
-              Premium Window and Door Contractor
+              Family-Owned Window and Door Contractor
             </p>
             <h1 className="text-4xl leading-tight sm:text-5xl lg:text-6xl">
               Visible Windows & Doors - Installed to Perform
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-[#1e2f3a]">
-              Premium sales, expert installation, and long-term service for modern homes and high-end projects. Specialists in complex window and door systems.
+              Service and repairs, expert installation, and window and door sales by a Family-owned business with the expertise to take on any project or challenge.
             </p>
             <div className="flex flex-wrap gap-4">
               <CtaLink href="/contact">Request a Quote</CtaLink>
@@ -92,7 +92,7 @@ export default function HomePage() {
           <div className="mb-8 space-y-3">
             <h2 className="text-3xl sm:text-4xl">Core Services</h2>
             <p className="max-w-3xl text-base leading-7 text-[#243744]">
-              End-to-end support for window and door installations, sales, and long-term service.
+              End-to-end support for long-term service, expert installation, and window and door sales.
             </p>
           </div>
 

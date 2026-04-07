@@ -42,7 +42,7 @@ export default function AboutPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent/80">About / Meet the Family</p>
             <h1 className="text-4xl leading-tight sm:text-5xl lg:text-6xl">The Team Behind Visible Windows & Doors</h1>
             <p className="max-w-3xl text-lg leading-8 text-[#1e2f3a]">
-              Visible Windows & Doors is led by three partners who combine decades of field experience with a quality-first installation mindset. As a family-led team, we bring continuity, accountability, and technical depth to every project.
+              Visible Windows & Doors is led by three partners who combine decades of field experience with a quality-first installation mindset. As a family-owned business, we bring continuity, accountability, and technical depth to every project.
             </p>
             <div className="flex flex-wrap gap-4">
               <CtaLink href="/contact">Start a Project Conversation</CtaLink>
