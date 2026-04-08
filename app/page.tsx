@@ -54,7 +54,7 @@ export default function HomePage() {
               Visible Windows & Doors - Installed to Perform
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-[#1e2f3a]">
-              Service and repairs, expert installation, and window and door sales by a Family-owned business with the expertise to take on any project or challenge.
+              Service and repairs, expert installation, and window and door sales by a family-owned business with the expertise to take on any project or challenge.
             </p>
             <div className="flex flex-wrap gap-4">
               <CtaLink href="/contact">Request a Quote</CtaLink>
