@@ -10,10 +10,10 @@ export function buildMetadata(
   path: string
 ): Metadata {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  const title = `${siteConfig.name} | ${pageName}`;
+  const title = `${pageName} | ${siteConfig.name}`;
 
   return {
-    title,
+    title: pageName,
     description,
     alternates: {
       canonical: normalizedPath

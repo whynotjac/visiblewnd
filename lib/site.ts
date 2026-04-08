@@ -1,9 +1,12 @@
 export const siteConfig = {
   name: "Visible Windows & Doors",
+  shortName: "Visible",
   description:
     "Service, installation, and sales of windows and doors.",
   serviceArea: "Family-owned and based in Southern California",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.visiblewindowsanddoors.com"
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.visiblewindowsanddoors.com",
+  iconPath: "/images/brand/visible-icon-512.png",
+  appleTouchIconPath: "/images/brand/apple-touch-icon.png"
 };
 
 export const navLinks = [
