@@ -78,7 +78,7 @@ export default function HomePage() {
       </section>
 
       <section className="border-b border-line bg-white">
-        <Container className="grid gap-4 py-8 sm:grid-cols-3">
+        <Container className="grid gap-4 py-6 sm:grid-cols-3">
           {trustItems.map((item) => (
             <div key={item} className="rounded-xl border border-line bg-[#faf8f2] p-5 text-center shadow-card">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">{item}</p>
@@ -87,13 +87,10 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="py-10 sm:py-12">
         <Container>
-          <div className="mb-8 space-y-3">
+          <div className="mb-9 sm:mb-10">
             <h2 className="text-3xl sm:text-4xl">Core Services</h2>
-            <p className="max-w-3xl text-base leading-7 text-[#243744]">
-              End-to-end support for long-term service, expert installation, and window and door sales.
-            </p>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-3">
@@ -113,29 +110,9 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="border-y border-line bg-white py-16 sm:py-20">
-        <Container className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div className="space-y-5 rounded-2xl bg-white p-6 text-ink shadow-card sm:p-8">
-            <h2 className="text-3xl !text-ink sm:text-4xl">
-            Expertly Installed Windows & Doors
-            </h2>
-            <p className="text-base leading-8 !text-ink">
-              We specialize in quality window and door systems known for their performance, craftsmanship, and design. Our team has extensive experience working with high-end European and domestic manufacturers, we understand the installation standards required to ensure long-term performance in a variety of climates.
-            </p>
-          </div>
-          <div className="relative min-h-[300px] overflow-hidden rounded-2xl border border-line shadow-soft sm:min-h-[380px]">
-            <LightboxImage
-              src={europeanFeaturePhoto.src}
-              alt={europeanFeaturePhoto.alt}
-              sizes="(min-width: 1024px) 40vw, 100vw"
-            />
-          </div>
-        </Container>
-      </section>
-
-      <section className="py-16 sm:py-20">
+      <section className="border-t border-line bg-white/45 pb-10 pt-4 sm:pb-12 sm:pt-6">
         <Container>
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
             <div className="space-y-3">
               <h2 className="text-3xl sm:text-4xl">Gallery Preview</h2>
               <p className="max-w-2xl text-base leading-7 !text-ink">
@@ -150,7 +127,27 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="border-t border-line bg-[#e9e3d7] py-16 sm:py-20">
+      <section className="border-y border-line bg-white py-10 sm:py-12">
+        <Container className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="space-y-5 rounded-2xl bg-white p-6 text-ink shadow-card sm:p-8">
+            <h2 className="text-3xl !text-ink sm:text-4xl">
+              Expertly Installed Windows & Doors
+            </h2>
+            <p className="text-base leading-8 !text-ink">
+              We specialize in quality window and door systems known for their performance, craftsmanship, and design. Our team has extensive experience working with high-end European and domestic manufacturers, we understand the installation standards required to ensure long-term performance in a variety of climates.
+            </p>
+          </div>
+          <div className="relative min-h-[260px] overflow-hidden rounded-2xl border border-line shadow-soft sm:min-h-[320px]">
+            <LightboxImage
+              src={europeanFeaturePhoto.src}
+              alt={europeanFeaturePhoto.alt}
+              sizes="(min-width: 1024px) 40vw, 100vw"
+            />
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-line bg-[#e9e3d7] py-10 sm:py-12">
         <Container className="text-center">
           <h2 className="text-4xl">Let&apos;s Talk About Your Project</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-[#223540]">

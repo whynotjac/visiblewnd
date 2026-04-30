@@ -35,14 +35,14 @@ export function ProjectPreviewGrid({ count = 6 }: ProjectPreviewGridProps) {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:auto-rows-[300px] lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:auto-rows-[260px] lg:grid-cols-4">
         {previewPhotos.map((photo, index) => (
           <button
             key={`${photo.src}-${index}`}
             type="button"
             onClick={() => setSelectedIndex(index)}
             className={cn(
-              "preview-card group relative min-h-[300px] overflow-hidden rounded-2xl border border-line text-left shadow-card transition duration-300",
+              "preview-card group relative min-h-[240px] overflow-hidden rounded-2xl border border-line text-left shadow-card transition duration-300 sm:min-h-[260px]",
               "hover:z-10 hover:scale-[1.03] hover:shadow-soft"
             )}
           >
