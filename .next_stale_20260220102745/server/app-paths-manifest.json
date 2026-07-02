@@ -1,7 +1,0 @@
-{
-  "/page": "app/page.js",
-  "/installation/page": "app/installation/page.js",
-  "/service-maintenance/page": "app/service-maintenance/page.js",
-  "/projects/page": "app/projects/page.js",
-  "/contact/page": "app/contact/page.js"
-}
