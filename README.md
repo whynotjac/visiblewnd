@@ -1,55 +1,47 @@
-# Visible Windows & Doors Website
+# Visible Windows & Doors — Website (multi-page)
 
-Production-ready Next.js App Router website for Visible Windows & Doors, built from `Master.md`.
+Static, multi-page marketing site (HTML, CSS, vanilla JS) for a family-owned window and
+door installation, sales, and service company in Southern California. No build step.
 
-## Stack
+## Pages (each is its own indexable URL)
+```
+/                     index.html              Home
+/sales                sales.html              Windows & Doors for sale
+/installation         installation.html       Installation services
+/service-maintenance  service-maintenance.html Repair & maintenance
+/projects             projects.html           Project gallery (with lightbox)
+/about                about.html              About / meet the family
+/contact              contact.html            Contact form
+```
+Clean URLs (`/sales` instead of `/sales.html`) are handled by `vercel.json`.
 
-- Next.js (App Router) + TypeScript
-- Tailwind CSS
-- Resend email delivery for forms
-
-## Routes
-
-- `/`
-- `/sales`
-- `/installation`
-- `/service-maintenance`
-- `/projects`
-- `/about`
-- `/contact`
-
-## Setup
-
-1. Install dependencies:
-
-```bash
-npm install
+## Structure
+```
+*.html                one file per page
+robots.txt, sitemap.xml
+vercel.json           clean URLs, caching, security headers
+favicon.png
+assets/
+  css/styles.css
+  js/app.js           menu, gallery lightbox, team showcase, FAQ
+  images/             site images incl. og-image.jpg
 ```
 
-2. Configure environment variables:
+## Per-page SEO
+- Each page has its own <title>, meta description, canonical, and Open Graph/Twitter tags
+- LocalBusiness (HomeAndConstructionBusiness) JSON-LD with detailed window/door service
+  catalog + reviews on every page; extra Service schema on Installation, Sales, and Service pages
+- sitemap.xml lists all 7 URLs
 
+## Before going live
+Replace `https://visiblewindowsanddoors.com` in every `*.html` (canonical/OG/JSON-LD),
+`robots.txt`, and `sitemap.xml` with your real domain.
+
+## Local preview
 ```bash
-cp .env.example .env.local
+npx serve .        # or: python3 -m http.server 8000
 ```
+Note: with a plain static server, use `/sales.html`; on Vercel, `/sales` works via cleanUrls.
 
-3. Run development server:
-
-```bash
-npm run dev
-```
-
-## Form Delivery
-
-Both the Contact form and Service & Maintenance form submit to API routes and deliver messages via Resend. Configure:
-
-- `RESEND_API_KEY`
-- `BUSINESS_INBOX_EMAIL`
-- `FROM_EMAIL`
-
-## Quality Checks
-
-```bash
-npm run lint
-npm run typecheck
-npm run build
-```
+## Deploy to Vercel
+Push to GitHub -> import in Vercel -> Framework preset **Other** (no build command) -> Deploy.
