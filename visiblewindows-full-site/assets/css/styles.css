@@ -160,6 +160,35 @@ img{display:block;max-width:100%;height:auto}
 .card .more svg{transition:transform .2s}
 .card:hover .more svg{transform:translateX(4px)}
 
+/* google reviews */
+.goog-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:34px}
+.goog-eyebrow{font-family:"Inter";font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#c1440e;font-weight:700}
+.goog-rating-row{display:flex;align-items:center;gap:14px;margin-top:10px}
+.goog-rating-num{font-family:"Playfair Display",serif;font-size:2.6rem;font-weight:700;color:var(--cream)}
+.goog-rating-row .goog-stars svg{color:var(--cream)}
+.goog-rating-sub{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--muted);font-size:.92rem}
+.goog-rating-sub .goog-stars svg{width:15px;height:15px}
+.goog-stars{display:inline-flex;gap:2px;color:var(--gold)}
+.goog-cta-link{font-size:.92rem;font-weight:600;color:var(--cream);border-bottom:1px solid var(--line-strong);padding-bottom:2px}
+.goog-cta-link:hover{color:var(--gold)}
+.goog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.goog-card{position:relative;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-md);padding:26px}
+.goog-card-g{position:absolute;top:22px;right:22px;width:20px;height:20px}
+.goog-card-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.goog-avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;
+  font-family:"Inter";font-size:1rem;font-weight:700;color:#fff}
+.goog-who{min-width:0}
+.goog-name{font-weight:600;color:var(--cream);font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.goog-when{color:var(--muted-2);font-size:.78rem;margin-top:1px}
+.goog-card .goog-stars{margin-bottom:12px}
+.goog-card .goog-stars svg{width:15px;height:15px}
+.goog-text{color:var(--muted);font-size:.92rem;line-height:1.65}
+.goog-more{color:#c1440e;font-weight:600}
+.goog-more:hover{text-decoration:underline}
+.goog-foot{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:38px}
+.goog-foot-label{color:var(--cream);font-weight:600;font-size:.95rem}
+@media(max-width:980px){ .goog-grid{grid-template-columns:1fr}; .goog-head{flex-direction:column;align-items:flex-start} }
+
 /* reviews */
 .rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .rv-card{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-md);padding:28px;
