@@ -1,0 +1,6 @@
+{
+  "name": "visible-windows-doors-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static site (HTML/CSS/JS, no build step) deployed on Netlify. Forms use Netlify Forms (native form detection) instead of a serverless function."
+}
