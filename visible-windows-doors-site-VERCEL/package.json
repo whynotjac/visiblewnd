@@ -1,0 +1,10 @@
+{
+  "name": "visible-windows-doors-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static site (HTML/CSS/JS, no build step) deployed on Vercel. Forms POST to a Vercel serverless function (api/submit.js) that emails submissions via Resend.",
+  "dependencies": {
+    "formidable": "^3.5.4",
+    "resend": "^3.5.0"
+  }
+}
