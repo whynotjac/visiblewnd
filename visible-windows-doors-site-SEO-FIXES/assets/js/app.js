@@ -1,36 +1,73 @@
 (function(){
-  function closeAllMenus(){
-    document.querySelectorAll('.menu-toggle').forEach(function(b){ b.setAttribute('aria-expanded','false'); });
-    document.querySelectorAll('.menu-panel').forEach(function(p){ p.classList.remove('open'); setTimeout(function(){ if(!p.classList.contains('open')) p.hidden=true; },350); });
-    document.querySelectorAll('.menu-overlay').forEach(function(o){ o.classList.remove('open'); setTimeout(function(){ if(!o.classList.contains('open')) o.hidden=true; },300); });
+  var lastMenuToggle=null;
+  var reduceMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function syncHeaderState(){
+    document.querySelectorAll('.site-head').forEach(function(head){
+      head.classList.toggle('is-scrolled',window.scrollY>8);
+    });
   }
+
+  function closeAllMenus(restoreFocus){
+    document.querySelectorAll('.menu-toggle').forEach(function(b){
+      b.setAttribute('aria-expanded','false');
+      b.setAttribute('aria-label','Open menu');
+    });
+    document.querySelectorAll('.menu-panel').forEach(function(p){
+      p.classList.remove('open');
+      window.setTimeout(function(){ if(!p.classList.contains('open')) p.hidden=true; },reduceMotion?0:240);
+    });
+    if(restoreFocus && lastMenuToggle){
+      lastMenuToggle.focus();
+    }
+  }
+
   // hamburger menu toggle
   document.querySelectorAll('.menu-toggle').forEach(function(btn){
     btn.addEventListener('click',function(){
       var head=btn.closest('.site-head');
       var panel=head.querySelector('.menu-panel');
-      var overlay=head.querySelector('.menu-overlay');
       var open=btn.getAttribute('aria-expanded')==='true';
       if(open){
-        btn.setAttribute('aria-expanded','false');
-        if(panel){ panel.classList.remove('open'); setTimeout(function(){ panel.hidden=true; },350); }
-        if(overlay){ overlay.classList.remove('open'); setTimeout(function(){ overlay.hidden=true; },300); }
+        closeAllMenus(false);
       } else {
+        closeAllMenus(false);
+        lastMenuToggle=btn;
         btn.setAttribute('aria-expanded','true');
+        btn.setAttribute('aria-label','Close menu');
         if(panel){ panel.hidden=false; void panel.offsetWidth; panel.classList.add('open'); }
-        if(overlay){ overlay.hidden=false; void overlay.offsetWidth; overlay.classList.add('open'); }
       }
     });
   });
-  document.querySelectorAll('.menu-overlay').forEach(function(o){ o.addEventListener('click',closeAllMenus); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeAllMenus(); });
+  document.querySelectorAll('.menu-panel .menu-link,.menu-panel .menu-cta').forEach(function(link){
+    link.addEventListener('click',function(){ closeAllMenus(false); });
+  });
+  document.addEventListener('pointerdown',function(e){
+    if(!document.querySelector('.menu-panel.open')) return;
+    if(!e.target.closest('.site-head')) closeAllMenus(false);
+  });
+  document.addEventListener('keydown',function(e){
+    if(!document.querySelector('.menu-panel.open')) return;
+    if(e.key==='Escape'){
+      closeAllMenus(true);
+    }
+  });
+  window.addEventListener('resize',function(){
+    if(window.innerWidth>=1024) closeAllMenus(false);
+  });
+  window.addEventListener('scroll',function(){
+    syncHeaderState();
+    if(document.querySelector('.menu-panel.open')) closeAllMenus(false);
+  },{passive:true});
+  syncHeaderState();
 
   /* ---- gallery lightbox ---- */
   (function(){
     var lb=document.getElementById('lightbox');
     if(!lb) return;
     var lbImg=document.getElementById('lbImg');
-    var items=[], current=-1;
+    var items=[], current=-1, lastFocus=null;
+    lb.hidden=true;
     function collect(){ items=Array.prototype.slice.call(document.querySelectorAll('.gal-open')); }
     function show(i){
       collect();
@@ -40,8 +77,26 @@
       lbImg.src=el.getAttribute('data-full');
       lbImg.alt=el.getAttribute('data-caption')||'';
     }
-    function open(i){ show(i); lb.hidden=false; void lb.offsetWidth; lb.classList.add('open'); document.body.style.overflow='hidden'; }
-    function close(){ lb.classList.remove('open'); document.body.style.overflow=''; setTimeout(function(){ if(!lb.classList.contains('open')) lbImg.src=''; },300); }
+    function open(i){
+      lastFocus=document.activeElement;
+      show(i);
+      lb.hidden=false;
+      void lb.offsetWidth;
+      lb.classList.add('open');
+      document.body.style.overflow='hidden';
+      document.getElementById('lbClose').focus();
+    }
+    function close(){
+      lb.classList.remove('open');
+      document.body.style.overflow='';
+      setTimeout(function(){
+        if(!lb.classList.contains('open')){
+          lbImg.src='';
+          lb.hidden=true;
+          if(lastFocus && typeof lastFocus.focus==='function') lastFocus.focus();
+        }
+      },reduceMotion?0:300);
+    }
     document.addEventListener('click',function(e){
       var btn=e.target.closest && e.target.closest('.gal-open');
       if(btn){ e.preventDefault(); collect(); open(items.indexOf(btn)); }
@@ -55,6 +110,16 @@
       if(e.key==='Escape') close();
       else if(e.key==='ArrowLeft') show(current-1);
       else if(e.key==='ArrowRight') show(current+1);
+      else if(e.key==='Tab'){
+        var controls=[
+          document.getElementById('lbClose'),
+          document.getElementById('lbPrev'),
+          document.getElementById('lbNext')
+        ];
+        var at=controls.indexOf(document.activeElement);
+        if(e.shiftKey && at<=0){ e.preventDefault(); controls[controls.length-1].focus(); }
+        else if(!e.shiftKey && at===controls.length-1){ e.preventDefault(); controls[0].focus(); }
+      }
     });
   })();
   // FAQ accordion
@@ -109,7 +174,7 @@
       dots.forEach(function(d,i){d.classList.toggle('active',i===active);});
     }
     function advance(){ active=(active+1)%members.length; render(); }
-    function startCycle(){ stopCycle(); if(!paused){ cycleT=setInterval(advance,CYCLE); } }
+    function startCycle(){ stopCycle(); if(!paused && !reduceMotion){ cycleT=setInterval(advance,CYCLE); } }
     function stopCycle(){ if(cycleT){ clearInterval(cycleT); cycleT=null; } }
     function select(i){
       active=i; render();
@@ -144,24 +209,110 @@
     render(); startCycle();
   })();
 })();
-// Visible loading state for the Vercel serverless form submissions (contact,
-// service request, specialty repair). These are plain native POSTs (no
-// fetch/AJAX) so the page navigates away on success (to /thank-you.html) or
-// on failure (to the server-rendered error page from /api/submit) - this
-// script only needs to give the user feedback in the moment between click
-// and navigation, not manage success/failure state itself.
+// Progressive form submission keeps field values in place on errors and
+// presents a responsive inline status. Native POST remains the no-JS fallback.
 (function(){
+  var MAX_FILE_BYTES=3*1024*1024;
+
+  function getStatus(form){
+    var status=form.querySelector('.form-status');
+    if(status) return status;
+    status=document.createElement('div');
+    status.className='form-status';
+    status.setAttribute('role','status');
+    status.setAttribute('aria-live','polite');
+    var button=form.querySelector('button[type="submit"]');
+    if(button) button.insertAdjacentElement('afterend',status);
+    else form.appendChild(status);
+    return status;
+  }
+
+  function showStatus(form,message,type){
+    var status=getStatus(form);
+    status.textContent=message;
+    status.className='form-status is-visible '+(type==='success'?'is-success':'is-error');
+  }
+
+  function clearStatus(form){
+    var status=getStatus(form);
+    status.textContent='';
+    status.className='form-status';
+  }
+
+  function resetButton(form){
+    var btn=form.querySelector('button[type="submit"]');
+    if(!btn) return;
+    btn.disabled=false;
+    btn.removeAttribute('aria-busy');
+    if(btn.dataset.originalText){
+      btn.textContent=btn.dataset.originalText;
+      delete btn.dataset.originalText;
+    }
+  }
+
   document.querySelectorAll('form[action="/api/submit"]').forEach(function(form){
-    form.addEventListener('submit', function(){
-      // Let native HTML5 validation run first; if the form is invalid the
-      // browser blocks the submit event entirely, so reaching this point
-      // means the request is actually going out.
+    var fileInput=form.querySelector('input[type="file"][name="photo"]');
+    if(fileInput){
+      fileInput.addEventListener('change',function(){
+        clearStatus(form);
+        var file=fileInput.files && fileInput.files[0];
+        if(file && file.size>MAX_FILE_BYTES){
+          fileInput.setCustomValidity('Please choose an image smaller than 3 MB.');
+          showStatus(form,'That image is larger than 3 MB. Choose a smaller image, or submit without a photo.','error');
+        } else {
+          fileInput.setCustomValidity('');
+        }
+      });
+    }
+
+    form.addEventListener('submit', async function(event){
+      if(!window.fetch || !window.FormData) return;
+      event.preventDefault();
+      clearStatus(form);
+
+      if(!form.reportValidity()) return;
+
+      var file=fileInput && fileInput.files && fileInput.files[0];
+      if(file && file.size>MAX_FILE_BYTES){
+        showStatus(form,'That image is larger than 3 MB. Choose a smaller image, or submit without a photo.','error');
+        fileInput.focus();
+        return;
+      }
+
       var btn = form.querySelector('button[type="submit"]');
       if(!btn || btn.disabled) return;
       btn.dataset.originalText = btn.textContent;
       btn.disabled = true;
       btn.setAttribute('aria-busy','true');
       btn.textContent = 'Sending…';
+
+      try{
+        var response=await fetch(form.action,{
+          method:'POST',
+          body:new FormData(form),
+          headers:{'Accept':'application/json'}
+        });
+        var payload={};
+        try{ payload=await response.json(); }catch(parseError){ payload={}; }
+        if(!response.ok){
+          throw new Error(payload.error || 'We could not send your request. Your entries are still here so you can try again.');
+        }
+        showStatus(form,payload.message || 'Thank you. Your request was sent successfully.','success');
+        window.location.assign(payload.redirect || '/thank-you');
+      }catch(error){
+        resetButton(form);
+        showStatus(
+          form,
+          error && error.message ? error.message : 'We could not send your request. Please try again or call (858) 334-9071.',
+          'error'
+        );
+      }
     });
+  });
+
+  // Safari and other browsers may restore a page from back-forward cache with
+  // the previous loading state intact. Always make the form usable again.
+  window.addEventListener('pageshow',function(){
+    document.querySelectorAll('form[action="/api/submit"]').forEach(resetButton);
   });
 })();

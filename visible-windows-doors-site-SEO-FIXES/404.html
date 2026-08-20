@@ -9,18 +9,38 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260819r4">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="vw-page active" data-page="404">
     <header class="site-head"><div class="wrap bar">
       <a class="brand" href="/" aria-label="Visible Windows &amp; Doors home">
-        <img src="assets/images/img-c801fbccfd5e.png" alt="Visible Windows &amp; Doors logo" width="600" height="171"/>
+        <img src="assets/images/visible-logo-classic-600.webp" alt="Visible Windows &amp; Doors logo" width="600" height="155"/>
       </a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <a href="/" class="menu-link">Home</a>
+        <a href="/sales" class="menu-link">Sales</a>
+        <a href="/installation" class="menu-link">Installation</a>
+        <a href="/service-maintenance" class="menu-link">Service <span class="amp">&amp;</span> Maintenance</a>
+        <a href="/projects" class="menu-link">Gallery</a>
+        <a href="/about" class="menu-link">About</a>
+        <a href="/contact" class="menu-link">Contact</a>
+      </nav>
       <div class="head-cta">
         <a class="btn btn-gold" href="tel:8583349071">Call Now</a>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteMenu-404">
+          <span class="mt-bar"></span><span class="mt-bar"></span><span class="mt-bar"></span>
+        </button>
       </div>
-    </div></header>
+    </div>
+    <nav class="menu-panel" id="siteMenu-404" aria-label="Primary" hidden>
+      <div class="menu-panel-inner">
+        <a href="/" class="menu-link">Home</a><a href="/sales" class="menu-link">Sales</a><a href="/installation" class="menu-link">Installation</a><a href="/service-maintenance" class="menu-link">Service <span class="amp">&amp;</span> Maintenance</a><a href="/projects" class="menu-link">Gallery</a><a href="/about" class="menu-link">About</a><a href="/contact" class="menu-link">Contact</a>
+        <a href="tel:8583349071" class="btn btn-gold menu-cta">Call Now <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </div>
+    </nav>
+    </header>
     <main id="main">
     <section class="section" style="padding-top:96px;padding-bottom:96px">
       <div class="wrap" style="max-width:640px;text-align:center">
@@ -41,5 +61,6 @@
       </div>
     </div></footer>
     </div>
+<script src="assets/js/app.js?v=20260819r4" defer></script>
 </body>
 </html>

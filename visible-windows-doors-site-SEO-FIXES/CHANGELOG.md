@@ -1,4 +1,26 @@
-# Changelog — SEO Re-Audit Remediation (2026-07-27)
+# Changelog
+
+## Responsive Redesign and Form Reliability (2026-08-18)
+
+- Restored a visible seven-link desktop navigation while retaining the mobile drawer.
+- Rebuilt responsive layout rules for gradual four/two/one-column behavior and stable
+  hero typography from 1440 px down to 320 px.
+- Removed the transformed page-entry animation and all scroll-driven header styling so
+  the sticky header remains flush to the viewport without a mobile gap or repaint.
+- Moved the service request form directly below the service hero and reduced narrow-screen
+  form insets.
+- Reworked the mobile family showcase so the photo stays visible and biographies read in
+  a separate panel.
+- Added skip links, stronger keyboard focus states, an accessible full-viewport menu, and
+  focus management for the gallery lightbox.
+- Fixed optional empty-file submissions, enforced a safe 3 MB photo limit, added server-side
+  validation, retained field values on errors, and documented the Vercel/Resend environment.
+- Corrected immutable caching for mutable CSS/JS filenames and added explicit asset versions.
+- Preserved existing indexed titles, descriptions, canonicals, H1s, body copy, FAQs,
+  reviews, robots directives, sitemap entries, and LLM guidance. Added missing schema.org
+  context declarations to three standalone Service JSON-LD blocks.
+
+## SEO Re-Audit Remediation (2026-07-27)
 
 Developer-side fixes addressing the July 27, 2026 independent SEO re-audit. Owner-side actions (Google Business Profile verification, Yelp/Angi/Houzz/BBB listings, review requests) are out of scope for code and remain to be done.
 
