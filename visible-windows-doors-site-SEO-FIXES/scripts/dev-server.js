@@ -97,7 +97,9 @@ function resolveStaticFile(pathname) {
 
   if (!path.extname(pathname)) {
     const cleanPath = pathname.replace(/\/+$/, '') || '/';
-    return existingFile(`${cleanPath}.html`);
+    const cleanFile = existingFile(`${cleanPath}.html`);
+    if (cleanFile) return cleanFile;
+    return existingFile(`${cleanPath}/index.html`);
   }
 
   return null;
