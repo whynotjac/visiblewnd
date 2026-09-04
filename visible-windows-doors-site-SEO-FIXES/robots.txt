@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# Answer engines that send referral traffic — explicitly welcome.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Scrapers with no referral value.
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://www.visiblewindowsanddoors.com/sitemap.xml
